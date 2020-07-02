@@ -1,0 +1,9 @@
+@import url(../element/element.css);
+
+.elements {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(282px, 1fr));
+    grid-column-gap: 18px;
+    grid-row-gap: 21px;
+}
