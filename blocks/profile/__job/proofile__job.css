@@ -4,3 +4,13 @@
     font-size: 18px;
     line-height: 1.22px;
 }
+
+@media (min-width:300px) and (max-width:636px) {
+    .profile__job {
+        font-size: 14px;
+        line-height: 1.21;
+        text-align: center;
+        margin: 0;
+        /* margin-top: 14px; */
+    }
+}

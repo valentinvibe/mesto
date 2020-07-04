@@ -8,14 +8,13 @@
         </head> 
 
   <body class="page">
-      <div class="content">
+      <!-- <div class="content"> -->
         <header class="header">
             <img class="header__logo" src="./images/logo.svg" alt="Логотип Место.Россия">
             <div class="header__line"></div>
          </header>
 
          <main class="main">
-
             <section class="profile">
                 <div class="profile__about">
                     <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватар пользователя">
@@ -25,8 +24,7 @@
                         <p class="profile__job">Исследователь океана</p>
                     </div>
                 </div>
-                <button class="profile__add-button">
-                </button>
+                <button class="profile__add-button"></button>
             </section>
 
              <section class="elements">
@@ -66,7 +64,7 @@
                     <img class="element__image" src="./images/petersburg.jpg" alt="Санкт-Петербург">
                     <div class="element__caption">
                         <h2 class="element__title">Санкт-Петербург</h2>
-                        <dbutton class="element__button-like"></dbutton>
+                        <button class="element__button-like"></button>
                     </div>
                 </article>
 
@@ -80,9 +78,10 @@
             </section>
          </main>
     
-      <footer class="footer">
-        <p class="footer__info">&copy; 2020 Mesto Russia</p>
-      </footer>
+         <footer class="footer">
+            <p class="footer__info">&copy; 2020 Mesto Russia</p>
+          </footer>
+      
 
       <div class="modal">
         <div class="modal__container">
@@ -90,11 +89,11 @@
             <form class="form" action="#">
                 <label class="form__label">Редактировать профиль</label>
                 <input type="text" class="form__input form__input_type_name" placeholder="Имя">
-                <input type="text" class="form__input form__input_type_job" placeholder="Введите профессию">
-                <button class="form__submit-button" type="submit">Сохранить</button>
+                <input type="text" class="form__input form__input_type_job" placeholder="О себе">
+                <button type="submit" class="form__submit-button" >Сохранить</button>
             </form>
         </div>
-    </div>
+    <!-- </div> -->
 
     </div>
 

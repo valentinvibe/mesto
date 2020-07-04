@@ -3,9 +3,5 @@
 @import url(./__submit-button/form__submit-button.css);
 
 .form {
-    margin-top: 34px;
-    margin-left: 36px;
-    margin-bottom: 58px;
-    /* display: flex;
-    flex-direction: column; */
+    padding: 34px 36px 36px 36px;
 }

@@ -1,7 +1,13 @@
 @import url(./__info/footer__info.css);
 
 .footer {
+    max-width: 882px;
     color: #fff;
-    margin-top: 66px;
-    margin-bottom: 60px;
+    margin: 66px auto 60px;
+}
+
+@media (min-width:300px) and (max-width:900px) {
+    .footer {
+        width: 90%;
+    }
 }

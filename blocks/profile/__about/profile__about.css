@@ -2,3 +2,9 @@
     display: flex;
     align-items: center;
 }
+
+@media (min-width:300px) and (max-width:636px) {
+    .profile__about {
+        flex-direction: column;
+    }
+}

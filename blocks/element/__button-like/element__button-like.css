@@ -1,11 +1,10 @@
 .element__button-like {
+    background: transparent;
     background-image: url(../../../images/button-like.svg);
-    width: 22px;
+    width: 21px;
     height: 18px;
     background-size: cover;
     border: none;
-}
-
-.element__button-like:focus {
-    border: none;
+    margin-left: 30px;
+    padding-right: 8px;
 }

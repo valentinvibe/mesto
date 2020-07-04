@@ -13,4 +13,5 @@
 .modal__close-button:hover{
     opacity: .6;
     transition: .2s linear;
+    cursor: pointer;
 }
