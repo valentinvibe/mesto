@@ -8,7 +8,6 @@
 
 @media (min-width:300px) and (max-width:636px) {
     .profile__name {
-        font-weight: 500;
         font-size: 27px;
         line-height: 2.07;
         text-align: center;
