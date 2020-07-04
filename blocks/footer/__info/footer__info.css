@@ -1,8 +1,15 @@
 .footer__info {
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 1.22;
-color: #545454;
-cursor: default;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.22;
+  color: #545454;
+  cursor: default;
+}
+
+@media (min-width:300px) and (max-width:600px) {
+    .footer__info {
+      font-size: 14px;
+      line-height: 1.21;  
+    }
 }

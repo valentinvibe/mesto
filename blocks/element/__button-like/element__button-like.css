@@ -8,3 +8,10 @@
     margin-left: 30px;
     padding-right: 8px;
 }
+
+.element__button-like:hover {
+    transform: scale(1.04);
+    opacity: 0.7;
+    transition: .2s linear;
+    cursor: pointer;
+}

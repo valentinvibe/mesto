@@ -8,55 +8,9 @@
 	left: 0;
 	top: 0;
 	width: 100%; 
-	height: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
 
-
-/* modal_is-open {
-    display: flex;
-}
-
-когда закрыт - display: none;
-
-index.js
-const openModalButton = document.querySelector('.11111modal');
-const modal = querySelector(.modal);
-
-
-func toggleModal() {
-    modal.clasList.toggle(modal_is-open);
-}
-
-ModalButton.addEventListener ('click', toggleModal);
-
-
-/* closeModalButton = document.querySelector('.11111modal');
-
-closeModalButton.addEventListener ('click', () => {
-    
-    modal.classList.remove('modal_is-open')
-})
-
-
-openModalButton.addEventListener ('click', () => {
-    
-    modal.classList.add('modal_is-open')
-}) */
-
-
-/* <form action="#">
-<input type="text" class="form__input" value="..." placeholder="">
-<input type="text" class="form__input" value="...">
-<input type="sumit" value=""
-<button type="submit"  class="form__button" value=""></button> -!!!!!!!!
-
-
-
-const form=modal.querySelect(form);
-
-form.addEventListener('submit', (event) => {
-    const input = modal.querySelector(input__form form__input_type_name);
-    event.preventDefault;
-   balbalbal.textContent = inputName.value;
-})  */

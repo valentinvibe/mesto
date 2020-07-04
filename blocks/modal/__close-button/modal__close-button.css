@@ -3,7 +3,7 @@
     top: -40px;
     right: -40px;
     background: transparent;
-    background-image: url(../../../images/CloseIcon.png);
+    background-image: url(../../../images/close-icon.svg);
     width: 50px;
     height: 50px;
     background-size: contain;
@@ -15,3 +15,11 @@
     transition: .2s linear;
     cursor: pointer;
 }
+
+@media (min-width:300px) and (max-width:425px) {
+    .modal__close-button {
+        width: 35px;
+        height: 35px;
+        top: -30px;
+        right: -30px;
+    }
