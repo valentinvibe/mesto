@@ -29,9 +29,36 @@ const
       addCardModalCloseButton = addCardModal.querySelector('.popup__close-button'),
       imageModalCloseButton = imageModal.querySelector('.popup__close-button'),
 
-      elements = document.querySelector('.elements');
+      //Template
+      cardTemplate = document.querySelector('.template-card').content.querySelector('.element'),
+      list = document.querySelector('.elements');
 
-
+const initialCards = [
+    {
+        name: 'Архыз',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    },
+    {
+        name: 'Челябинская область',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    },
+    {
+        name: 'Иваново',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    },
+    {
+        name: 'Камчатка',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    },
+    {
+        name: 'Холмогорский район',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    },
+    {
+        name: 'Байкал',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    }
+];
 
 function toggleModalWindow(modalWindow) {
     if (!modalWindow.classList.contains('popup_type_open')) {
@@ -41,7 +68,6 @@ function toggleModalWindow(modalWindow) {
     modalWindow.classList.toggle('popup_type_open')
  }
  
-
 //Open popup's
 profileEdit.addEventListener('click', () => {
     toggleModalWindow(editProfileModal)
@@ -51,8 +77,6 @@ createNewCard.addEventListener('click', () =>{
     formPlaceEdit.value="";
     formLinkEdit.value="";
 })
-
-
 
 //Close popup's
 editProfileModalCloseButton.addEventListener('click', () => {
@@ -66,8 +90,6 @@ addCardModalCloseButton.addEventListener('click', () => {
 imageModalCloseButton.addEventListener('click', () => {
     toggleModalWindow(imageModal);
 })
-
-
 
 // Submit Form's popup
 editProfileForm.addEventListener('submit', function(event) {
@@ -89,36 +111,22 @@ addCardForm.addEventListener('submit', function(event) {
 })
 
 
+//Load cards js
+function renderCard(data) {
+    list.prepend(createCard(data));
+}
 
-const initialCards = [
-   {
-       name: 'Архыз',
-       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-   },
-   {
-       name: 'Челябинская область',
-       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-   },
-   {
-       name: 'Иваново',
-       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-   },
-   {
-       name: 'Камчатка',
-       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-   },
-   {
-       name: 'Холмогорский район',
-       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-   },
-   {
-       name: 'Байкал',
-       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-   }
-];
+function handleDeleteClick(item) {
+    item.closest('.element').remove();
+}
 
-const cardTemplate = document.querySelector('.template-card').content.querySelector('.element');
-const list = document.querySelector('.elements');
+function handleLikeClick(item) {
+    item.classList.toggle('button__like_type_liked');
+}
+
+function handleImageClick(item) {
+    toggleModalWindow(imageModal);
+}
 
 initialCards.forEach((data) => {
     renderCard(data);
@@ -148,19 +156,3 @@ function createCard(data) {
 
     return cardElement;
 };
-
-function renderCard(data) {
-    list.prepend(createCard(data));
-}
-
-function handleDeleteClick(item) {
-    item.closest('.element').remove();
-}
-
-function handleLikeClick(item) {
-    item.classList.toggle('button__like_type_liked');
-}
-
-function handleImageClick(item) {
-    toggleModalWindow(imageModal);
-}
