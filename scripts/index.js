@@ -64,8 +64,8 @@ function toggleModalWindow(modalWindow) {
     modalWindow.classList.toggle('popup_type_open')
  }
 
- function toggleEditProfileModal(modalWindow) {
-    if (!modalWindow.classList.contains('popup_type_open')) {
+ function toggleEditProfileModal() {
+    if (!editProfileModal.classList.contains('popup_type_open')) {
         formNameEdit.value=profileName.textContent;
         formJobEdit.value=profileJob.textContent;
      }
@@ -74,7 +74,7 @@ function toggleModalWindow(modalWindow) {
  
 //Open popup's
 profileEdit.addEventListener('click', () => {
-    toggleEditProfileModal(editProfileModal);
+    toggleEditProfileModal();
 });
 createNewCard.addEventListener('click', () =>{
     toggleModalWindow(addCardModal);

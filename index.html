@@ -38,12 +38,12 @@
       <div class="popup popup_type_edit-profile">
         <div class="popup__container">
             <button type="button" class="popup__close-button"></button>
-            <form class="form form_type_edit-profile" action="#">
+            <form class="form form_type_edit-profile" action="#" novalidate>
                 <fieldset class="form__group">
                     <legend class="form__label">Редактировать профиль</legend>
-                    <input type="text" name="profile-name" class="form__input form__input_type_name" placeholder="Имя">
-                    <input type="text" name="profile-about" class="form__input form__input_type_job" placeholder="О себе">
-                    <button type="submit" class="form__submit-button" >Сохранить</button>
+                    <input type="text" name="profile-name" class="form__input form__input_type_name" placeholder="Имя" minlength="2" maxlength="40" required>
+                    <input type="text" name="profile-about" class="form__input form__input_type_job" placeholder="О себе" minlength="2" maxlength="200" required>
+                    <button type="submit" class="form__submit-button form__submit-button_type_disabled" >Сохранить</button>
                 </fieldset>
             </form>
         </div>
@@ -52,11 +52,11 @@
       <div class="popup popup_type_add-card">
         <div class="popup__container">
             <button type="button" class="popup__close-button"></button>
-            <form class="form form_type_add-card" action="#">
+            <form class="form form_type_add-card" action="#" novalidate>
                 <fieldset class="form__group">
                     <legend class="form__label">Новое место</legend>
-                    <input type="text" name="place" class="form__input form__input_type_name" placeholder="Название">
-                    <input type="text" name="place-info" class="form__input form__input_type_job" placeholder="Ссылка на картинку">
+                    <input type="text" name="place" class="form__input form__input_type_name" placeholder="Название" minlength="1" maxlength="30" required>
+                    <input type="url" name="place-info" class="form__input form__input_type_job" placeholder="Ссылка на картинку" required>
                     <button type="submit" class="form__submit-button" >Создать</button>
                 </fieldset>
             </form>
