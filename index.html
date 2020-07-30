@@ -41,9 +41,11 @@
             <form class="form form_type_edit-profile" action="#" novalidate>
                 <fieldset class="form__group">
                     <legend class="form__label">Редактировать профиль</legend>
-                    <input type="text" name="profile-name" class="form__input form__input_type_name" placeholder="Имя" minlength="2" maxlength="40" required>
-                    <input type="text" name="profile-about" class="form__input form__input_type_job" placeholder="О себе" minlength="2" maxlength="200" required>
-                    <button type="submit" class="form__submit-button form__submit-button_type_disabled" >Сохранить</button>
+                    <input type="text" id="profile-name" name="profile-name" class="form__input form__input_type_name" placeholder="Имя" minlength="2" maxlength="40" required>
+                    <span class="form__input-error" id="profile-name-error"></span>
+                    <input type="text" id="profile-about" name="profile-about" class="form__input form__input_type_job" placeholder="О себе" minlength="2" maxlength="200" required>
+                    <span class="form__input-error" id="profile-about-error"></span>
+                    <button type="submit" class="form__submit-button" >Сохранить</button>
                 </fieldset>
             </form>
         </div>
@@ -55,8 +57,10 @@
             <form class="form form_type_add-card" action="#" novalidate>
                 <fieldset class="form__group">
                     <legend class="form__label">Новое место</legend>
-                    <input type="text" name="place" class="form__input form__input_type_name" placeholder="Название" minlength="1" maxlength="30" required>
-                    <input type="url" name="place-info" class="form__input form__input_type_job" placeholder="Ссылка на картинку" required>
+                    <input type="text" id="place" name="place" class="form__input form__input_type_name" placeholder="Название" minlength="1" maxlength="30" required>
+                    <span class="form__input-error" id="place-error"></span>
+                    <input type="url" id="place-info" name="place-info" class="form__input form__input_type_job" placeholder="Ссылка на картинку" required>
+                    <span class="form__input-error" id="place-info-error"></span>
                     <button type="submit" class="form__submit-button" >Создать</button>
                 </fieldset>
             </form>
@@ -85,5 +89,6 @@
     </template>
 
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>

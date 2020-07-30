@@ -163,3 +163,5 @@ function createCard(data) {
 
     return cardElement;
 };
+
+/////////////////Validation forms/////////////////////

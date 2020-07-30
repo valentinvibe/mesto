@@ -11,6 +11,7 @@
   border: none;
   border-radius: 2px;
   align-self: flex-end;
+  margin-top: 48px;
 }
 
 .form__submit-button:hover {
