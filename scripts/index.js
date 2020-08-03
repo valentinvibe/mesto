@@ -60,7 +60,44 @@ const initialCards = [
     }
 ];
 
+const popupList = Array.from(document.querySelectorAll('.popup'));
+popupList.forEach((element) => {
+    element.addEventListener('click', (evt) =>{
+        if (evt.target.classList.contains('popup_type_open')) {toggleModalWindow(element)}
+    })
+});
+
+const popupIsOpened = (popupElement) => {
+    return popupElement.classList.contains('popup_type_open');
+};
+
+
+const closePopupEscHandler = (evt) => {
+    evt.preventDefault();
+    if (evt.key == "Escape") {
+        const popupElement = popupList.find(popupElement => popupIsOpened(popupElement));
+        if (popupElement) {
+            toggleModalWindow(popupElement);
+        };
+    };
+};
+
+
+function addEscListener() {
+    document.addEventListener('keyup', closePopupEscHandler);
+}
+
+function removeEscListener() {
+    document.removeEventListener('keyup',closePopupEscHandler)
+}
+
+
 function toggleModalWindow(modalWindow) {
+    if (popupIsOpened(modalWindow)) {
+        removeEscListener();
+    } else {
+        addEscListener();
+    }
     modalWindow.classList.toggle('popup_type_open')
  }
 
@@ -163,27 +200,3 @@ function createCard(data) {
 
     return cardElement;
 };
-//----------------Close popups click and ESC button---------------------
-
-const popupList = Array.from(document.querySelectorAll('.popup'));
-popupList.forEach((element) => {
-    element.addEventListener('click', (evt) =>{
-        if (evt.target.classList.contains('popup_type_open')) {toggleModalWindow(element)}
-    })
-});
-
-const popupIsOpened = (popupElement) => {
-    return popupElement.classList.contains('popup_type_open');
-};
-
-const closePopupEscHandler = (evt) => {
-    evt.preventDefault();
-    if (evt.key == "Escape") {
-        const popupElement = popupList.find(popupElement => popupIsOpened(popupElement));
-        if (popupElement) {
-            toggleModalWindow(popupElement);
-        };
-    };
-};
-
-document.addEventListener('keyup', closePopupEscHandler);
