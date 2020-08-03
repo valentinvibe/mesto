@@ -33,6 +33,10 @@ const imageModalCloseButton = imageModal.querySelector('.popup__close-button');
 const cardTemplate = document.querySelector('.template-card').content.querySelector('.element');
 const list = document.querySelector('.elements');
 
+//Buttons
+const cardSubmitButton = addCardModal.querySelector('.form__submit-button');
+const profileSubmitButtom = editProfileModal.querySelector('.form__submit-button');
+
 const initialCards = [
     {
         name: 'Архыз',
@@ -112,6 +116,7 @@ function toggleModalWindow(modalWindow) {
 //Open popup's
 profileEdit.addEventListener('click', () => {
     toggleEditProfileModal();
+    profileSubmitButtom.classList.remove('form__submit-button_type_disabled');
 });
 createNewCard.addEventListener('click', () =>{
     toggleModalWindow(addCardModal);
@@ -150,6 +155,8 @@ addCardForm.addEventListener('submit', function(event) {
    }
    renderCard(newCardData);
    toggleModalWindow(addCardModal);
+   addCardForm.reset();
+   cardSubmitButton.classList.add('form__submit-button_type_disabled');
 })
 
 
@@ -166,7 +173,7 @@ function handleLikeClick(item) {
     item.classList.toggle('button__like_type_liked');
 }
 
-function handleImageClick(item) {
+function handleImageClick() {
     toggleModalWindow(imageModal);
 }
 
@@ -188,7 +195,7 @@ function createCard(data) {
         handleDeleteClick(evt.target);
     });
     cardImage.addEventListener('click', (evt) => {
-        handleImageClick(evt.target);
+        handleImageClick();
         imageModalImg.src = cardImage.src;
         imageModalDescription.textContent = cardTitle.textContent;
         imageModalImg.alt = cardTitle.textContent;

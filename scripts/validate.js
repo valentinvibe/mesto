@@ -1,6 +1,7 @@
 const params = {
     formSelector: '.form',
     inputSelector: '.form__input',
+    formGroup: '.form__group',
     submitButtonSelector: '.form__submit-button',
     inactiveButtonClass: 'form__submit-button_type_disabled',
     inputErrorClass: 'form__input-error_active',
@@ -22,9 +23,9 @@ const showInputError = (formElement, inputElement, errorMessage, inputErrorClass
   
   const toggleButtonState = (inputList, buttonElement, inactiveButtonClass) => {
     if (hasInvalidInput(inputList)) {
-      buttonElement.classList.add(inactiveButtonClass)
+      buttonElement.classList.add(inactiveButtonClass);
     } else {
-      buttonElement.classList.remove(inactiveButtonClass)
+      buttonElement.classList.remove(inactiveButtonClass);
     }
   }
   
@@ -62,11 +63,12 @@ const showInputError = (formElement, inputElement, errorMessage, inputErrorClass
       formElement.addEventListener('submit', function (evt) {
         evt.preventDefault();
       });
-      const fieldsetList=formElement.querySelectorAll('.form__group');
+      const fieldsetList=formElement.querySelectorAll(params.formGroup);
       fieldsetList.forEach((fieldSet) => {
         setEventListeners(fieldSet);
       })
     });
   };
   
+
   enableValidation(params);
