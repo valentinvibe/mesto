@@ -207,3 +207,5 @@ function createCard(data) {
 
     return cardElement;
 };
+
+

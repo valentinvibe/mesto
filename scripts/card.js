@@ -12,13 +12,18 @@ export class Card {
         .cloneNode(true);
 
         this._cardElement.querySelector('.element__title').textContent = this._name;
-        const elementImage = this._cardTemplate.querySelector('.element__image');
+        const elementImage = this._cardElement.querySelector('.element__image');
         elementImage.src = this._link;
         elementImage.alt = this._name;
 
         this._cardElement.querySelector('.element__button-like').addEventListener('click', this._likeCard);
         this._cardElement.querySelector('.element__trash').addEventListener('click', this._removeCard);
-        elementImage.addEventListener('click', () => this._handleImageClick);
+        elementImage.addEventListener('click', () => {
+            this._handleImageClick;
+            imageModalImg.src = this._link;
+            elementImage.textContent = this._name;
+            imageModalImg.alt = this._name;
+        });
     }
 
     _removeCard(event) {

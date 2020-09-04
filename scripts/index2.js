@@ -1,5 +1,4 @@
-import { Card } from './card.js';
-
+import { Card } from '../scripts/card.js';
 
 // Popup's
 const editProfileModal = document.querySelector('.popup_type_edit-profile');
@@ -33,7 +32,6 @@ const addCardModalCloseButton = addCardModal.querySelector('.popup__close-button
 const imageModalCloseButton = imageModal.querySelector('.popup__close-button');
 
 //Template
-const cardTemplate = document.querySelector('.template-card').content.querySelector('.element');
 const list = document.querySelector('.elements');
 
 //Buttons
@@ -155,58 +153,26 @@ addCardForm.addEventListener('submit', function(event) {
    const newCardData = {
       name: formPlaceEdit.value,
       link: formLinkEdit.value,
-   }
-   renderCard(newCardData);
+   };
+   rendererCard(newCardData);
    toggleModalWindow(addCardModal);
    addCardForm.reset();
    cardSubmitButton.classList.add('form__submit-button_type_disabled');
-})
+});
 
 
 //Load cards js
-function renderCard(data) {
-    list.prepend(createCard(data));
-}
-
-function handleDeleteClick(item) {
-    item.closest('.element').remove();
-}
-
-function handleLikeClick(item) {
-    item.classList.toggle('button__like_type_liked');
-}
-
 function handleImageClick() {
     toggleModalWindow(imageModal);
 }
 
+//Отрисовка карточек в HTML
 initialCards.forEach((data) => {
-    renderCard(data);
+    rendererCard(data);
 });
 
-function createCard(data) {
-    const cardElement = cardTemplate.cloneNode(true),
-          cardImage = cardElement.querySelector('.element__image'),
-          cardTitle = cardElement.querySelector('.element__title'),
-          cardLikeButton = cardElement.querySelector('.element__button-like'),
-          cardDeleteButton = cardElement.querySelector('.element__trash');
+function rendererCard(data) {
+    const newCard = new Card(data, ".template-card", handleImageClick);
+    list.prepend(newCard.generateCard());
 
-    cardLikeButton.addEventListener('click', (evt) => {
-        handleLikeClick(evt.target);
-    });
-    cardDeleteButton.addEventListener('click', (evt) => {
-        handleDeleteClick(evt.target);
-    });
-    cardImage.addEventListener('click', (evt) => {
-        handleImageClick();
-        imageModalImg.src = cardImage.src;
-        imageModalDescription.textContent = cardTitle.textContent;
-        imageModalImg.alt = cardTitle.textContent;
-    });
-
-    cardTitle.textContent = data.name;
-    cardImage.src = data.link;
-    cardImage.alt = data.name;
-
-    return cardElement;
-};
+}
