@@ -1,4 +1,5 @@
 import { Card } from '../scripts/card.js';
+import {FormValidator, params} from '../scripts/formValidator.js';
 
 // Popup's
 const editProfileModal = document.querySelector('.popup_type_edit-profile');
@@ -172,7 +173,19 @@ initialCards.forEach((data) => {
 });
 
 function rendererCard(data) {
-    const newCard = new Card(data, ".template-card", handleImageClick);
+    const newCard = new Card(data, ".template-card", handleImageClick,imageModalImg,imageModalDescription);
     list.prepend(newCard.generateCard());
 
 }
+
+const enableValidation = (params) => {
+    const formList = Array.from(document.querySelectorAll(params.formSelector));
+
+    formList.forEach((formElement) => {
+        const formValidator = new FormValidator(params, formElement);
+        formValidator.enableValidation();
+        formValidator[formElement.id] = formValidator;
+    });
+};
+
+enableValidation(params);

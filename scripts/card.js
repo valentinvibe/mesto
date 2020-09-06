@@ -18,10 +18,17 @@ export class Card {
 
         this._cardElement.querySelector('.element__button-like').addEventListener('click', this._likeCard);
         this._cardElement.querySelector('.element__trash').addEventListener('click', this._removeCard);
+        
+        
+
         elementImage.addEventListener('click', () => {
+            const imageModal = document.querySelector('.popup_type_image-card');
+            const imageModalDescription = imageModal.querySelector('.popup__description');
+            const imageModalImg = imageModal.querySelector('.popup__image');
+            
             this._handleImageClick;
             imageModalImg.src = this._link;
-            elementImage.textContent = this._name;
+            imageModalDescription.textContent = this._name;
             imageModalImg.alt = this._name;
         });
     }
