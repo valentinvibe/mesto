@@ -25,8 +25,7 @@ export class Card {
             const imageModal = document.querySelector('.popup_type_image-card');
             const imageModalDescription = imageModal.querySelector('.popup__description');
             const imageModalImg = imageModal.querySelector('.popup__image');
-            
-            this._handleImageClick;
+            this._handleImageClick(imageModal);
             imageModalImg.src = this._link;
             imageModalDescription.textContent = this._name;
             imageModalImg.alt = this._name;

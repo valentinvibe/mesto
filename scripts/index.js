@@ -1,68 +1,28 @@
-// Popup's
-const editProfileModal = document.querySelector('.popup_type_edit-profile');
-const addCardModal = document.querySelector('.popup_type_add-card');
-const imageModal = document.querySelector('.popup_type_image-card');
+import { Card } from '../scripts/card.js';
+import {FormValidator, params} from '../scripts/formValidator.js';
+import {initialCards} from '../scripts/initial-cards.js'
+import {
+    editProfileModal,
+    addCardModal,
+    imageModal,
+    profileEdit,
+    createNewCard,
+    profileName,
+    profileJob,
+    editProfileForm,
+    addCardForm,
+    formNameEdit,
+    formJobEdit,
+    formPlaceEdit,
+    formLinkEdit,
+    editProfileModalCloseButton,
+    addCardModalCloseButton,
+    imageModalCloseButton,
+    cardSubmitButton,
+    profileSubmitButtom,
+    list
+} from '../scripts/constants.js'
 
-//Open Popup's
-const profileEdit = document.querySelector('.profile__edit-button');
-const createNewCard = document.querySelector('.profile__add-button');
-
-const profileName = document.querySelector('.profile__name');
-const profileJob = document.querySelector('.profile__job');
-
-//Form
-const editProfileForm = editProfileModal.querySelector('.form_type_edit-profile');
-const addCardForm = addCardModal.querySelector('.form_type_add-card');
-
-//inputs in forms
-const formNameEdit = document.querySelector('.form__input_type_name');
-const formJobEdit = document.querySelector('.form__input_type_job');
-const formPlaceEdit = addCardForm.querySelector('.form__input_type_name');
-const formLinkEdit = addCardForm.querySelector('.form__input_type_job');
-
-//ImageModal data
-const imageModalDescription = imageModal.querySelector('.popup__description');
-const imageModalImg = imageModal.querySelector('.popup__image');
-      
-// Close Button Popup's
-const editProfileModalCloseButton = editProfileModal.querySelector('.popup__close-button');
-const addCardModalCloseButton = addCardModal.querySelector('.popup__close-button');
-const imageModalCloseButton = imageModal.querySelector('.popup__close-button');
-
-//Template
-const cardTemplate = document.querySelector('.template-card').content.querySelector('.element');
-const list = document.querySelector('.elements');
-
-//Buttons
-const cardSubmitButton = addCardModal.querySelector('.form__submit-button');
-const profileSubmitButtom = editProfileModal.querySelector('.form__submit-button');
-
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
 
 const popupList = Array.from(document.querySelectorAll('.popup'));
 popupList.forEach((element) => {
@@ -152,60 +112,37 @@ addCardForm.addEventListener('submit', function(event) {
    const newCardData = {
       name: formPlaceEdit.value,
       link: formLinkEdit.value,
-   }
-   renderCard(newCardData);
+   };
+   rendererCard(newCardData);
    toggleModalWindow(addCardModal);
    addCardForm.reset();
    cardSubmitButton.classList.add('form__submit-button_type_disabled');
-})
+});
 
 
 //Load cards js
-function renderCard(data) {
-    list.prepend(createCard(data));
-}
-
-function handleDeleteClick(item) {
-    item.closest('.element').remove();
-}
-
-function handleLikeClick(item) {
-    item.classList.toggle('button__like_type_liked');
-}
-
 function handleImageClick() {
     toggleModalWindow(imageModal);
 }
 
+//Отрисовка карточек в HTML
 initialCards.forEach((data) => {
-    renderCard(data);
+    rendererCard(data);
 });
 
-function createCard(data) {
-    const cardElement = cardTemplate.cloneNode(true),
-          cardImage = cardElement.querySelector('.element__image'),
-          cardTitle = cardElement.querySelector('.element__title'),
-          cardLikeButton = cardElement.querySelector('.element__button-like'),
-          cardDeleteButton = cardElement.querySelector('.element__trash');
+function rendererCard(data) {
+    const newCard = new Card(data, ".template-card", handleImageClick);
+    list.prepend(newCard.generateCard());
 
-    cardLikeButton.addEventListener('click', (evt) => {
-        handleLikeClick(evt.target);
-    });
-    cardDeleteButton.addEventListener('click', (evt) => {
-        handleDeleteClick(evt.target);
-    });
-    cardImage.addEventListener('click', (evt) => {
-        handleImageClick();
-        imageModalImg.src = cardImage.src;
-        imageModalDescription.textContent = cardTitle.textContent;
-        imageModalImg.alt = cardTitle.textContent;
-    });
+}
 
-    cardTitle.textContent = data.name;
-    cardImage.src = data.link;
-    cardImage.alt = data.name;
+const enableValidation = (params) => {
+    const formList = Array.from(document.querySelectorAll(params.formSelector));
 
-    return cardElement;
+    formList.forEach((formElement) => {
+        const formValidator = new FormValidator(params, formElement);
+        formValidator.enableValidation();
+    });
 };
 
-
+enableValidation(params);
