@@ -1,6 +1,7 @@
 import { Card } from '../scripts/card.js';
-import {FormValidator, params} from '../scripts/formValidator.js';
-import {initialCards} from '../scripts/initial-cards.js'
+import {FormValidator} from '../scripts/formValidator.js';
+import {params} from '../src/utils/params.js'
+import {initialCards} from '../src/utils/initial-cards.js'
 import {
     editProfileModal,
     addCardModal,
@@ -21,7 +22,7 @@ import {
     cardSubmitButton,
     profileSubmitButtom,
     list
-} from '../scripts/constants.js'
+} from '../src/utils/constants.js'
 
 
 const popupList = Array.from(document.querySelectorAll('.popup'));
@@ -132,17 +133,23 @@ initialCards.forEach((data) => {
 
 function rendererCard(data) {
     const newCard = new Card(data, ".template-card", handleImageClick);
-    list.prepend(newCard.generateCard());
+    list.prepend(newCard.getView());
 
 }
 
-const enableValidation = (params) => {
-    const formList = Array.from(document.querySelectorAll(params.formSelector));
+// const enableValidation = (params) => {
+//     const formList = Array.from(document.querySelectorAll(params.formSelector));
+    
+//     formList.forEach((formElement) => {
+//         const formValidator = new FormValidator(params, formElement);
+//         formValidator.enableValidation();
+//     });
+// };
 
-    formList.forEach((formElement) => {
-        const formValidator = new FormValidator(params, formElement);
-        formValidator.enableValidation();
-    });
-};
+// enableValidation(params);
 
-enableValidation(params);
+const editFormValidator = new FormValidator(params, params.editFormSelector);
+const cardFormValidator = new FormValidator(params, params.cardFormSelector);
+
+editFormValidator.enableValidation();
+cardFormValidator.enableValidation();
