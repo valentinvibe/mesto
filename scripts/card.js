@@ -16,8 +16,8 @@ export class Card {
     }
 
     _setEventListeners(elementImage) {
-        this._cardElement.querySelector('.element__button-like').addEventListener('click', this._likeCard);
-        this._cardElement.querySelector('.element__trash').addEventListener('click', this._removeCard);
+        this._cardElement.querySelector('.element__button-like').addEventListener('click', () => this._likeCard());
+        this._cardElement.querySelector('.element__trash').addEventListener('click', () => this._removeCard());
         elementImage.addEventListener('click', () => {
             const imageModal = document.querySelector('.popup_type_image-card');
             const imageModalDescription = imageModal.querySelector('.popup__description');
@@ -30,15 +30,12 @@ export class Card {
     }
 
     _removeCard() {
-        const cardElement = event.target.closest('.element');
-        // const cardElement = this._cardTemplate.querySelector('.element');
-        cardElement.remove();
-        // this._cardElement.closest('.element').remove();
-        // this._cardElement = null;
+        this._cardElement.remove();
+        this._cardElement = null;
     }
     
-    _likeCard(event) {
-        event.target.classList.toggle('button__like_type_liked');
+    _likeCard() {
+        this._cardElement.querySelector('.element__button-like').classList.toggle('button__like_type_liked');
     }
     
     getView() {

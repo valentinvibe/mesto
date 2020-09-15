@@ -1,5 +1,3 @@
-import { params } from '../src/utils/params.js';
-
 class FormValidator {
   constructor(params,formElement) {
     this._formElement = formElement;
