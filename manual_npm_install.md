@@ -10,3 +10,6 @@
 10. npm i html-loader --save-dev
 11. npm i css-loader --save-dev
 12. npm i mini-css-extract-plugin --save-dev
+13. npm i postcss-loader --save-dev
+14. npm i autoprefixer --save-dev
+15. npm i cssnano --save-dev
