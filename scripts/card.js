@@ -4,6 +4,7 @@ export class Card {
         this._link = data.link;
         this._cardTemplate = document.querySelector(templateSelector);
         this._handleImageClick = handleImageClick;
+        
     }
 
     _getTemplate() {

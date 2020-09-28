@@ -1,7 +1,9 @@
+import '../pages/index.css'; //импорт главного файла стилей
+
 import { Card } from '../scripts/card.js';
 import {FormValidator} from '../scripts/formValidator.js';
-import {params} from './utils/params.js'
-import {initialCards} from './utils/initial-cards.js'
+import {params} from './utils/params.js';
+import {initialCards} from './utils/initial-cards.js';
 import {
     editProfileModal,
     addCardModal,
@@ -22,12 +24,16 @@ import {
     cardSubmitButton,
     profileSubmitButtom,
     list
-} from './utils/constants.js'
+} from './utils/constants.js';
+
+import '../scripts/popupWithForm.js';
+import '../scripts/popupWithImage.js';
+import '../scripts/userInfo.js';
 
 
 const popupList = Array.from(document.querySelectorAll('.popup'));
 popupList.forEach((element) => {
-    element.addEventListener('click', (evt) =>{
+    element.addEventListener('mousedown', (evt) =>{
         if (evt.target.classList.contains('popup_type_open')) {toggleModalWindow(element)}
     })
 });
@@ -136,17 +142,6 @@ function rendererCard(data) {
     list.prepend(newCard.getView());
 
 }
-
-// const enableValidation = (params) => {
-//     const formList = Array.from(document.querySelectorAll(params.formSelector));
-    
-//     formList.forEach((formElement) => {
-//         const formValidator = new FormValidator(params, formElement);
-//         formValidator.enableValidation();
-//     });
-// };
-
-// enableValidation(params);
 
 const editFormValidator = new FormValidator(params, params.editFormSelector);
 const cardFormValidator = new FormValidator(params, params.cardFormSelector);
