@@ -14,6 +14,6 @@ export default class Section {
     }
 
     addItem(cardElement) {
-        this.list.prepend(cardElement);
+        this._list.prepend(cardElement);
     }
 }

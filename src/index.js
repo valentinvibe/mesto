@@ -26,9 +26,9 @@ import {
     list
 } from './utils/constants.js';
 
-import '../scripts/popupWithForm.js';
-import '../scripts/popupWithImage.js';
-import '../scripts/userInfo.js';
+import {PopupWithForm} from '../scripts/popupWithForm.js';
+import {popupWithImage} from '../scripts/popupWithImage.js';
+import {UserInfo} from '../scripts/userInfo.js';
 
 
 const popupList = Array.from(document.querySelectorAll('.popup'));
