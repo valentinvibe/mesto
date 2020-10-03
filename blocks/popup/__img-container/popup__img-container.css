@@ -1,9 +1,0 @@
-.popup__img-container {
-    position: relative;
-}
-
-@media (min-width:300px) and (max-width:900px) {
-    .popup__img-container {
-        max-width: 95%;
-    }
-}

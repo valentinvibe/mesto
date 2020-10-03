@@ -1,36 +1,35 @@
-export const editProfileModal = document.querySelector('.popup_type_edit-profile');
-export const addCardModal = document.querySelector('.popup_type_add-card');
-export const imageModal = document.querySelector('.popup_type_image-card');
+export const popupEditProfile = document.querySelector('.popup');
+export const closeBtn = popupEditProfile.querySelector('.popup__btn-close');
+export const formElement = popupEditProfile.querySelector('.popup__container');
+export const bioPopupBtn = popupEditProfile.querySelector('.popup__btn-save');
+export const nameInput = popupEditProfile.querySelector('.popup__text_type_name');
+export const infoInput = popupEditProfile.querySelector('.popup__text_type_job');
 
-//Open Popup's
-export const profileEdit = document.querySelector('.profile__edit-button');
-export const createNewCard = document.querySelector('.profile__add-button');
+export const profileInfo = document.querySelector('.profile__info');
+export const editFormButton = profileInfo.querySelector('.profile__edit');
+export const profileTitle = document.querySelector('.profile__title');
+export const profileSubtitle = document.querySelector('.profile__subtitle');
+export const addFormButton = document.querySelector('.profile__add-button');
 
-export const profileName = document.querySelector('.profile__name');
-export const profileJob = document.querySelector('.profile__job');
+export const popupNewPlace = document.querySelector('.popup_new_place');
+export const closeBtnNewPlace = popupNewPlace.querySelector('.popup__btn-close');
+export const formElementNewPlace = popupNewPlace.querySelector('.popup__container');
+export const nameInputNewPlace = popupNewPlace.querySelector('.popup__text_type_name');
+export const lincInputNewPlace = popupNewPlace.querySelector('.popup__text_type_job');
 
-//Form
-export const editProfileForm = editProfileModal.querySelector('.form_type_edit-profile');
-export const addCardForm = addCardModal.querySelector('.form_type_add-card');
+export const cardsContainer = document.querySelector('.card-container');
+export const cardTemplate = document.querySelector('#card-template').content;
+export const cardImage = document.querySelector('.card__image');
 
-//inputs in forms
-export const formNameEdit = document.querySelector('.form__input_type_name');
-export const formJobEdit = document.querySelector('.form__input_type_job');
-export const formPlaceEdit = addCardForm.querySelector('.form__input_type_name');
-export const formLinkEdit = addCardForm.querySelector('.form__input_type_job');
+export const allPopups = Array.from(document.querySelectorAll('.popup'));
 
-//ImageModal data
-export const imageModalDescription = imageModal.querySelector('.popup__description');
-export const imageModalImg = imageModal.querySelector('.popup__image');
-      
-// Close Button Popup's
-export const editProfileModalCloseButton = editProfileModal.querySelector('.popup__close-button');
-export const addCardModalCloseButton = addCardModal.querySelector('.popup__close-button');
-export const imageModalCloseButton = imageModal.querySelector('.popup__close-button');
+export const errorElementClassSuffix = '-error';
 
-//Template
-export const list = document.querySelector('.elements');
-
-//Buttons
-export const cardSubmitButton = addCardModal.querySelector('.form__submit-button');
-export const profileSubmitButtom = editProfileModal.querySelector('.form__submit-button');
+export const validationParams = {
+    formSelector: '.popup__container',
+    inputSelector: '.popup__text',
+    submitButtonSelector: '.popup__btn-save',
+    inactiveButtonClass: 'popup__form-submit_inactive',
+    inputErrorClass: 'popup__text_type_error',
+    errorClass: 'popup__text-error_active'
+};

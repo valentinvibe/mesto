@@ -1,8 +1,0 @@
-.button__like_type_liked {
-    background-image: url(../../../../images/button-liked.svg);
-    
-}
-
-.button__like_type_liked:focus {
-    outline: none;
-}
