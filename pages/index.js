@@ -21,13 +21,16 @@ import PopupWithImage from '../components/popupWithImage.js';
 import PopupWithForm from '../components/popupWithForm.js';
 import UserInfo from '../components/userInfo.js';
 
+import Api from '../components/api.js';
+
 const popupImgSelector = ".popup_img";
 const popupBioSelector = ".popup";
 const popupNewPlaceSelector = ".popup_new_place";
 const nameSelector = ".profile__title";
 const jobSelector = ".profile__subtitle";
+const photoSelector = ".profile__avatar"
 
-const aUserInfo = new UserInfo({ nameSelector, jobSelector});
+const aUserInfo = new UserInfo({ nameSelector, jobSelector, photoSelector});
 
 const aPopupImage = new PopupWithImage(popupImgSelector);
 
@@ -108,3 +111,27 @@ export {
     aPopupImage,
     formValidators,
 };
+
+
+
+fetch('https://mesto.nomoreparties.co/v1/cohort-16/cards', {
+  headers: {
+    authorization: '9be5e6d6-4f94-471f-af70-49718e331d2d'
+  }
+})
+  .then(res => res.json())
+  .then((result) => {
+    console.log(result);
+  }); 
+
+  const serverUrl = 'https://mesto.nomoreparties.co/v1/cohort-16';
+
+  const api = new Api({
+    baseUrl: serverUrl,
+    headers: {
+      authorization: '9be5e6d6-4f94-471f-af70-49718e331d2d',
+      'Content-Type': 'application/json'
+    }
+  });
+
+  console.log(api.getUserData());
